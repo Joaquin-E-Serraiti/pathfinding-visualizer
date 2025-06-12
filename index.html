@@ -1,0 +1,33 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Path Finding Tester</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="inputDiv">
+      <input type="range" id="gridSizeSlider" min="19" max="121" step="2" />
+      <p id="inputText">Columns: 32</p>
+    </div>
+    <div id="interfaceDiv">
+      <canvas id="gridCanvas"></canvas>
+      <div id="buttonsPanel">
+        <button id="clearButton">
+          <img src="assets/Clear Image 3.png" alt="clear image" />
+        </button>
+        <button id="playButton">
+          <img src="assets/Play Image.png" alt="play image" id="playImage" />
+        </button>
+        <button id="speedButton">
+          <img src="assets/Clock Image.png" alt="clock image" /><span
+            id="speedText"
+            >X1</span
+          >
+        </button>
+      </div>
+    </div>
+    <script type="module" src="scripts/gui.js"></script>
+  </body>
+</html>
