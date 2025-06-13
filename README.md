@@ -9,6 +9,7 @@ The GUI supports adjustable grid size, drawing of start/end points and obstacles
 
 This project is desgined for experimentation and algorithm development.
 
+Try it in your browser: [Pathfinding Visualizer](https://joaquin-e-serraiti.github.io/pathfinding-visualizer/)
 
 ## 1. Quick Start
 
