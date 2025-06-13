@@ -50,7 +50,7 @@ playButton.addEventListener("click", async ()=>{
     grid.generateGrid(); // Clear squares colored by the algorithm
     algorithmTools.canRun = false;
   }
-  if (grid.startAndEndSet === 0b11) {demo()}
+  if (grid.startAndEndSet === 0b11) {aStar()}
 })
 
 
