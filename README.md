@@ -1,6 +1,6 @@
 # Pathfinding Visualizer
 
-![Screenshot of GUI](https://github.com/user-attachments/assets/223fc123-13d4-469a-86dd-8ca482cd99c2)
+![Screenshot of GUI](https://github.com/user-attachments/assets/77c0bd74-8135-46a2-86b5-cf0826bdea4a)
 
 
 **Pathfinding Visualizer** is a user-friendly GUI to visualize and test pathfinding algorithms. It includes built-in tools that let programmers easily integrate their own custom algorithms with minimal setup—no need to build a visualization system from scratch—just focus on writing your algorithm, and everything else is handled.
