@@ -1,5 +1,8 @@
 # Pathfinding Visualizer
 
+![Screenshot of GUI](https://github.com/user-attachments/assets/223fc123-13d4-469a-86dd-8ca482cd99c2)
+
+
 **Pathfinding Visualizer** is a user-friendly GUI to visualize and test pathfinding algorithms. It includes built-in tools that let programmers easily integrate their own custom algorithms with minimal setup—no need to build a visualization system from scratch—just focus on writing your algorithm, and everything else is handled.
 
 The GUI supports adjustable grid size, drawing of start/end points and obstacles, and speed control for algorithm visualization.
@@ -27,7 +30,7 @@ To erase, click and drag over any existing element. To reposition the start or e
 
 ### Grid Size Slider
 
-**Move the slider to select the number of columns in the grid**, with the number of rows automatically calculated to maintain the grid’s aspect ratio. The slider ranges from 19 to 119 and only allows odd numbers, ensuring both columns and rows are always odd. By default, the grid starts with 31 columns.
+**Move the slider to select the number of columns in the grid**, with the number of rows automatically calculated to maintain the grid’s aspect ratio. The slider ranges from 17 to 119 and only allows odd numbers, ensuring both columns and rows are always odd. By default, the grid starts with 29 columns.
 
 ### Clear grid button
 
