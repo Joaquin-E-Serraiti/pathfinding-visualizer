@@ -1,6 +1,6 @@
-# How to Install & Run the Project
+# How to Download & Run the Project Locally
 
-## 1. Clone the Repository
+## 1. Download the Project Files
 Go to the repository on GitHub, click the green `<> Code` button, and select **Download ZIP** from the dropdown menu.
 
 ## 2. Open with a Local Server
@@ -71,7 +71,7 @@ http://localhost:8000
 
 ## That's all!
 
-The GUI will load in your browser. Good job on installing and running this project. Now you can:
+The GUI will load in your browser. Good job on downloading and running this project. Now you can:
 
 - Set grid size, start/end points, and obstacles.
 
