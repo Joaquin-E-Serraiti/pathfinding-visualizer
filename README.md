@@ -13,7 +13,7 @@ Try it in your browser: [Pathfinding Visualizer](https://joaquin-e-serraiti.gith
 
 ## 1. Quick Start
 
-To install and run the GUI locally, see [INSTALL_AND_RUN.md](./INSTALL_AND_RUN.md).
+To download and run the GUI locally, see [DOWNLOAD_AND_RUN.md](./DOWNLOAD_AND_RUN.md).
 
 ## 2. Algorithm Integration
 
