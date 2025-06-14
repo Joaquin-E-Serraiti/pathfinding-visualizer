@@ -23,33 +23,37 @@ Learn how to create and visualize your pathfinding algorithm in the GUI: VISUALI
 
 ### Interactive Grid
 
-**Click and drag to draw the start and end nodes, as well as obstacles**. Obstacles appear in dark gray :black_large_square:, the start node is green :green_square:, and the end node is red :red_square:. To draw obstacles, the end node has to be placed; to draw the end node, the start node has to be placed.
+- **Click and drag to draw the start and end nodes, as well as obstacles**.
+- Obstacles appear in dark gray :black_large_square:, the start node is green :green_square:, and the end node is red :red_square:.
+- Placement order: obstacles are drawn after the end node; the end node is drawn after the start node.
+- To erase, click and drag over any drawn element.
+- To reposition the start or end node, erase it first, then draw again—the placement order will be respected.
 
-To erase, click and drag over any existing element. To reposition the start or end node, erase it first, then draw again—the placement order will be respected.
-
-**Note:** The algorithm won’t run unless both the start and end nodes are placed.
+**Note:** The pathfinding algorithm won’t run unless both the start and end nodes are placed.
 
 ### Grid Size Slider
 
-**Move the slider to select the number of columns in the grid**, with the number of rows automatically calculated to maintain the grid’s aspect ratio. The slider ranges from 17 to 119 and only allows odd numbers, ensuring both columns and rows are always odd. By default, the grid starts with 29 columns.
+- **Move the slider to select the number of columns in the grid**, with the number of rows automatically calculated to maintain the grid’s aspect ratio.
+- The slider ranges from 17 to 119 and only allows odd numbers, ensuring both columns and rows are always odd.
+- The grid starts with 29 columns by default.
 
 ### Clear grid button
 
-Clears the grid by erasing all drawn elements.
+- Clears the grid by erasing all drawn elements.
 
 ### Play/Stop button
 
-**Press the play button (▶️) to run the pathfinding algorithm in the grid**. Once pressed, it turns into a stop button (⏹️). **Pressing stop halts the algorithm and resets the grid to its pre-run state**, removing explored nodes and the path found.
+- **Press the play button (▶️) to run the pathfinding algorithm in the grid**. Once pressed, it turns into a stop button (⏹️).
+- **Pressing stop halts the algorithm and resets the grid to its pre-run state**, removing explored nodes and the path found.
 
 **Notes:**
-
 - Changing the grid size or pressing the clear grid button will also stop the algorithm.
-
 - If the start and end nodes are not placed, the algorithm won’t run even if the play button is pressed.
 
 ### Speed Control button
 
-Controls the speed of the visualization when running the algorithm. It toggles between three speeds, from slower to faster, each time you press it.
+- Controls the speed of the visualization when running the algorithm.
+- It toggles between three speeds, from slower to faster, each time you press it.
 
 ## 4. Internal Structure
 
