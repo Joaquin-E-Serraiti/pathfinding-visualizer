@@ -13,11 +13,11 @@ Try it in your browser: [Pathfinding Visualizer](https://joaquin-e-serraiti.gith
 
 ## 1. Quick Start
 
-To install and run the GUI locally, see INSTALL_AND_RUN.md.
+To install and run the GUI locally, see [INSTALL_AND_RUN.md](./INSTALL_AND_RUN.md).
 
 ## 2. Algorithm Integration
 
-Learn how to create and visualize your pathfinding algorithm in the GUI: VISUALIZE_YOUR_ALGORITHM.md.
+Learn how to create and visualize your pathfinding algorithm in the GUI: [VISUALIZE_YOUR_ALGORITHM.md](./VISUALIZE_YOUR_ALGORITHM.md).
 
 ## 3. Features & GUI Usage
 
