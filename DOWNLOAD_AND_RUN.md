@@ -71,11 +71,7 @@ http://localhost:8000
 
 ## That's all!
 
-The GUI will load in your browser. Good job on downloading and running this project. Now you can:
-
-- Set grid size, start/end points, and obstacles.
-
-- Click the **Play Button** to run and visualize an algorithm!
+The GUI will load in your browser. Good job on downloading and running this project. Now you can make changes to the code, test them and see how they reflect on the project.
 
 
 ## Want to Add Your Own Algorithm?
