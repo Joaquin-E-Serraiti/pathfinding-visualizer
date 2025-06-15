@@ -73,7 +73,7 @@ if (grid.startAndEndSet === 0b11) {myAlgorithm()}
 
 ## 4. Internal Structure
 
-The internal structure and logic of the code for this project explained: CODEBASE.md.
+A general explanation of the code structure and how the important parts work can be found in [CODEBASE.md](./CODEBASE.md).
 
 ## 5. Contributing
 
