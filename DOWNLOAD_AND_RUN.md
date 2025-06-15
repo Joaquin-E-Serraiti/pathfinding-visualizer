@@ -3,6 +3,9 @@
 ## 1. Download the Project Files
 Go to the repository on GitHub, click the green `<> Code` button, and select **Download ZIP** from the dropdown menu.
 
+![Download ZIP](https://github.com/user-attachments/assets/e1e3137c-a070-4893-8b67-5019d1f8d1ac)
+
+
 ## 2. Open with a Local Server
 Because the project uses JavaScript modules, it must be run through a local server. Here are two simple options:
 
@@ -13,6 +16,11 @@ Because the project uses JavaScript modules, it must be run through a local serv
 - Install the Live Server extension (if you haven’t already).
 
 - Right-click `index.html` and select **Open with Live Server**.
+
+
+![Open with Live Server](https://github.com/user-attachments/assets/79862981-5fca-4b2f-837c-06bff79440dc)
+
+
 
 
 ### Option B: Using Python (no setup needed)
