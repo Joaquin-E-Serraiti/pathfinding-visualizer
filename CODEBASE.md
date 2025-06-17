@@ -2,10 +2,6 @@
 
 ![Diagram](https://github.com/user-attachments/assets/dfa63aa7-c686-4aca-b595-4bfd1ae3e718)
 
-
-
-
-
 > [!NOTE]
 > This diagram is a visual support to help understand how the core components of the code communicate with each other.
 > It shouldn't be taken as an exact reference to how the code is structured.
@@ -60,6 +56,8 @@ The `grid.initialize()` method does 4 things:
 
 ### The `grid.measureGrid()` Method
 
+This method calculates important measures for the grid to be displayed on the canvas.
+
 ```js
 grid.measureGrid = function () {
   this.squareSize = Math.floor(((this.canvas.clientWidth-50) / this.columns) - ((this.columns/180)));
@@ -86,3 +84,53 @@ Important notes about the measurements:
 
 - **Why subtract 2 from the number of columns?:** In several parts of the code for this project, 2 is subtracted from the column count. This isn’t an intentional design choice—it’s a workaround that needs to be fixed. While I don't exactly remember why I did it, I believe it was because the square size ended up being too big in some cases due to not well adjusted grid measurements, which caused the squares to not fit correctly within the canvas width. To compensate, the number of columns is reduced by 2 in the `grid.generateGrid()` method, and this adjustment must be reflected in other parts of the code (In this case, when calculating the `horizontalPadding` for centering the grid).
 
+### The `grid.squaresStates` property
+
+Each square in the grid is indentified by a single index ranging from 0 to N-1, where N is the total number of squares (`columns * rows`). Instead of being identified by a `[column][row]` pair, the 2D position is flattened into a single index, calculated as `index = row * columns + column`. This indexing simplifies storage and traversal by treating the grid as a continuous block of memory.
+
+![Diseño sin título](https://github.com/user-attachments/assets/254562ff-edcf-4182-836c-d54248be6942)
+
+If needed, you can reverse the calculation to get the column and row from a given index:
+
+```js
+row = Math.floor(index / columns)
+column = index % columns
+```
+
+Each square has 1 of 4 possible states, encoded as a 2-bit integer: 
+- `0b00 = empty` (white)
+- `0b01 = start node` (green)
+- `0b10 = end node` (red)
+- `0b11 = obstacle` (dark gray)
+
+These states are stored in `grid.squaresStates`, in a typed array with 8-bit integers as elements. Each 8-bit element contains the states of 4 consecutive squares. For example: the 1st byte stores states from indeces `0-3`, the 2nd byte stores states from indeces `4-7`, and so on.
+
+- The `grid.getSquareState(squareIndex)` method returns the 2-bit value for the state of the square at the given index.
+- The `grid.setSquareState(squareIndex, newState)` method modifies `grid.squaresStates`, replacing the state of the square at the given index with the new state.
+
+### The `grid.manageSquareState()` method
+
+When users click and drag on the grid, the squares are re-drawn with new colors and their states are updated.
+
+(HERE GOES LONG IMAGE OF CURSOR IN GRID WITH COLORED SQUARES AT LEFT WITH ARROW)
+
+**Placement order** when clicking and dragging over empty squares (state is `0b00`):
+1. If the start node hasn't been placed, the empty square becomes the start node (state is `0b01`).
+2. If the start node has been placed, but not the end node, the empty square becomes the end node (state is `0b10`).
+3. If start and end node have been placed, the empty square becomes an obstacle (state is `0b11`).
+
+The `grid.manageSquareState()` method takes a square index and updates its state and the color that's applied when being redrawn:
+- If the square with the given index is empty (`0b00`), it updates its state following the **placement order**, and sets the appropriate color to be used during the redraw.
+- If the square with the given index isn't empty, it updates its state to be empty, and updates the coloring so that the square is colored white. Essentially, it erases already drawn elements (start node, end node and obstacles).
+- When placing the start or end nodes, it updates their position in the `grid.startIndex` and `grid.endIndex` properties. It also updates the `grid.startAndEndSet` property, that tells which one of the 2 nodes is placed and which one isn't.
+
+**Note:** this method does not directly re-draw the squares with a new color. It sets the coloring for the next square that will be redrawn. The drawing is handled by the `grid.colorSquare()` method.
+
+**Important properties used by this method:**
+
+- `grid.startIndex` : index of the last square where the start node was placed.
+- `grid.endIndex` : index of the last square where the end node was placed.
+- `grid.startAndEndSet` : 2-bit integer that tells which one of the start and end nodes is placed and which one isn't. For example: `0b11` means both nodes are placed, and `0b01` means only the start node is placed. This value is reset to `0b00` when resizing or clearing the grid. The code in gui.js accesses this property to only let the pathfinding algorithm run if both nodes are placed.
+- `grid.statesMap` : this map is used to update states and `grid.startAndEndSet`.
+- `grid.colorToDraw` : here is stored the color that should be used for the next square to be redrawn.
+- `grid.statesColorMap` : here `grid.startAndEndSet` possible values are mapped to the color a square should have when being re-drawn. Ensuring the coloring is aligned with the **placement order**.
