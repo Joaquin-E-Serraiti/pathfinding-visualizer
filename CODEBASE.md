@@ -1,6 +1,6 @@
 # Code Structure & How the Core Components Work
 
-![Diseño sin título (3)](https://github.com/user-attachments/assets/b73031ff-74c4-474e-8121-7d5b84633679)
+![Diseño sin título (4)](https://github.com/user-attachments/assets/7788d72d-dcac-40e1-8504-d1179b9cd09a)
 
 
 
