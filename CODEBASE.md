@@ -1,6 +1,8 @@
 # Code Structure & How the Core Components Work
 
-![Diagram](https://github.com/user-attachments/assets/dfa63aa7-c686-4aca-b595-4bfd1ae3e718)
+![Diseño sin título (3)](https://github.com/user-attachments/assets/b73031ff-74c4-474e-8121-7d5b84633679)
+
+
 
 > [!NOTE]
 > This diagram is a visual support to help understand how the core components of the code communicate with each other.
