@@ -1,6 +1,10 @@
 # Code Structure & How the Core Components Work
 
-![Diagram](https://github.com/user-attachments/assets/a3b40c4f-f3ea-4bcd-babd-dfcb90422e1f)
+![Diagram](https://github.com/user-attachments/assets/dfa63aa7-c686-4aca-b595-4bfd1ae3e718)
+
+
+
+
 
 > [!NOTE]
 > This diagram is a visual support to help understand how the core components of the code communicate with each other.
