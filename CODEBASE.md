@@ -76,7 +76,7 @@ The main formulas are these:
 - Horizontal padding = `(canvas width - ((square size + 1) * (columns - 2))) / 2`
 - Vertical padding = `(canvas height - ((square size + 1) * rows)) / 2`
 
-All other elements added to those formulas are just adjustments to make the grid look good for any number of columns. Also, the `1` in `(square size + 1)` represents the width of the space between each square.
+All other elements added to those formulas are just adjustments to make the grid look better. Also, the `1` in `(square size + 1)` represents the width of the space between each square.
 
 Important notes about the measurements:
 
@@ -84,5 +84,5 @@ Important notes about the measurements:
 
 - **Why use an odd number of rows and columns?:** This prepares the grid for a future maze-generation feature. The maze algorithm requires an odd-sized grid to generate clean, symmetrical paths—otherwise, it looks uneven at the edges. Though not currently needed, this constraint is in place for later use.
 
-- **Why subtract 2 from the number of columns?:** In several parts of the code for this project, 2 is subtracted from the column count. This isn’t an intentional design choice—it’s a workaround that needs to be fixed. While I don't exactly remember why I did it, I believe it was because the square size ended up being too big in some cases due to imprecise grid measurements, which caused the squares to not fit correctly within the canvas width. To compensate, the number of columns is reduced by 2 in the `grid.generateGrid()` method, and this adjustment must be reflected in other parts of the code (In this case, when calculating the `horizontalPadding` for centering the grid).
+- **Why subtract 2 from the number of columns?:** In several parts of the code for this project, 2 is subtracted from the column count. This isn’t an intentional design choice—it’s a workaround that needs to be fixed. While I don't exactly remember why I did it, I believe it was because the square size ended up being too big in some cases due to not well adjusted grid measurements, which caused the squares to not fit correctly within the canvas width. To compensate, the number of columns is reduced by 2 in the `grid.generateGrid()` method, and this adjustment must be reflected in other parts of the code (In this case, when calculating the `horizontalPadding` for centering the grid).
 
