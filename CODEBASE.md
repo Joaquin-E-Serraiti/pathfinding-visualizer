@@ -129,3 +129,56 @@ The `grid.manageSquareState()` method takes a square index and updates its state
 - `grid.statesMap` : this map is used to update states and `grid.startAndEndSet`.
 - `grid.colorToDraw` : here is stored the color that should be used for the next square to be redrawn.
 - `grid.statesColorMap` : here `grid.startAndEndSet` possible values are mapped to the color a square should have when being re-drawn. Ensuring the coloring is aligned with the **placement order**.
+
+### The `grid.colorSquare()` method
+
+This method takes a **square index** and a **color**, and redraws the square that corresponds to the given index, with the given color.
+
+```js
+grid.colorSquare = function(squareIndex, color) {
+  this.ctx.fillStyle = color;
+  const squarePositionX = squareIndex%(this.columns-2);
+  const squarePositionY = Math.floor(squareIndex/(this.columns-2));
+
+  this.ctx.clearRect(this.horizontalPadding+(squarePositionX*(this.squareSize+1))-1,this.verticalPadding+(squarePositionY*(this.squareSize+1))-1,this.squareSize+2,this.squareSize+2);
+
+  this.ctx.fillRect(this.horizontalPadding+(squarePositionX*(this.squareSize+1)),this.verticalPadding+(squarePositionY*(this.squareSize+1)),this.squareSize,this.squareSize);
+}
+
+```
+
+`squarePositionX` and `squarePositionY` are the column and row of the square. This information is used, along with the `horizontalPadding`, `verticalPadding` and `squareSize` measures taken by `grid.measureGrid()` at initialization, to know where in the canvas should the square be drawn.
+
+**Note:** when squares are redrawn one on top of the previous one, they get a bit blurry at the edges. To avoid these blurry edges when redrawing, the previous square must be erased, and it is also necessary to erase the "border" of the square, which is the gap around it. That's why `this.ctx.clearRect()` is used, and why the area erased is bigger than the area of the redrawn square.
+
+### The `grid.drawOnGrid()` method
+
+This method uses `grid.manageSquareState()` and `grid.colorSquare()` for updating and drawing squares when the user clicks and drags on the grid. 
+
+It follows this process:
+
+1. Receives the event of the user clicking or dragging on the canvas.
+2. Calculates over what square was the cursor when clicking or dragging.
+3. With the index of that square, calls `grid.manageSquareState(squareIndex)` to update its state.
+4. After, it calls `grid.colorSquare(squareIndex, this.colorToDraw)` to update the square color on the grid.
+
+
+**How it avoids redrawing the same square multiple times in a short period of time:**
+
+- `grid.previousSquareClicked` is used to track the index of the last square the user clicked or dragged over.
+- `grid.lastDrawTime` is used to track **when** was the last square redrawn.
+
+With the following condition, a square will be redrawn only if the square to redraw now is different from the square redrawn before, or if 600 ms have passed from the last time a square was redrawn:
+```js
+if ((squareClickedX < 0 || squareClickedY < 0) || (squareClickedX > this.columns-3 || squareClickedY > this.rows-1)) {return};
+```
+
+**Only redraws when clicking and dragging inside the grid:**
+
+Because the grid does not occupy the whole canvas, the `grid.drawOnGrid()` method might be called when the user clicks and drags over the canvas, but not over the grid.
+
+The following conditional stops the `grid.drawOnGrid()` method when the cursor of the user is outside the grid when clicking or dragging.
+```js
+if ((squareClickedX < 0 || squareClickedY < 0) || (squareClickedX > this.columns-3 || squareClickedY > this.rows-1)) {return};
+```
+
