@@ -183,3 +183,4 @@ The following conditional stops the `grid.drawOnGrid()` method when the cursor o
 if ((squareClickedX < 0 || squareClickedY < 0) || (squareClickedX > this.columns-3 || squareClickedY > this.rows-1)) {return};
 ```
 
+## The `algorithmTools` object
