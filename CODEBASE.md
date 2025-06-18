@@ -1,5 +1,8 @@
 # Code Structure & How the Core Components Work
 
+(THINGS TO ADD: grid object is found in grid.js and algorithmsTools object in algorithmsTools.js)
+
+
 ![Diseño sin título (4)](https://github.com/user-attachments/assets/7788d72d-dcac-40e1-8504-d1179b9cd09a)
 
 
@@ -182,5 +185,36 @@ The following conditional stops the `grid.drawOnGrid()` method when the cursor o
 ```js
 if ((squareClickedX < 0 || squareClickedY < 0) || (squareClickedX > this.columns-3 || squareClickedY > this.rows-1)) {return};
 ```
+
+### The `grid.generateGrid()` method
+
+```js
+grid.generateGrid = function() {
+  let color;
+  this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
+  for (let row = 0; row < this.rows; row++) {
+    for (let col = 0; col < this.columns-2; col++) {
+      color = {0b00:"rgb(255 255 255)",0b01:"rgb(90 240 180)",0b10:"rgb(250 80 150)",0b11:"rgb(70 70 85)"}[this.getSquareState(row*(this.columns-2) + col)];
+      this.colorSquare(row*(this.columns-2) + col, color);
+    }
+  }
+}
+```
+
+The grid has **2 distinct representations**: 
+
+- **Visual representation —** the grid that the user sees on the UI: squares drawn on the canvas with specific colors.
+- **Data representation —** Internal information that defines the grid: number of columns and rows, square size, and the state of each square
+
+The visual representation is generated from the data representation. In other words, the grid is drawn based on the current state of its data.
+
+The `grid.generateGrid()` does this by looping through each square and:
+
+- Retrieving its current state using `this.getSquareState()`.
+- Mapping that to its corresponding color (`0b00`: white, `0b01`: green, `0b10`: red, `0b11`: dark gray).
+- Drawing the square in position with `this.colorSquare()`.
+
+If the grid is reset or resized, the square states are also reset to `0b00` (empty → white). This method simply renders the grid as defined by its current configuration.
+
 
 ## The `algorithmTools` object
