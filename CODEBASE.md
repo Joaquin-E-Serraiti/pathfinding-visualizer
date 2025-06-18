@@ -11,7 +11,7 @@
 ## Components Overview
 
 This project has 3 core components: the code in `gui.js`, the `grid` object and `algorithmTools` object. 
-Together, they connect the graphic user interface (GUI) with the pathfinding algorithm.
+Together, they connect the graphical user interface (GUI) with the pathfinding algorithm.
 
 - `gui.js` acts as the central hub were everything is wired together. User inputs—such as mouse events, button clicks, and slider changes—are connected to the `grid` object, the `algorithmTools` object, and the pathfinding algorithm.
 
@@ -20,7 +20,8 @@ Together, they connect the graphic user interface (GUI) with the pathfinding alg
   - Detecting which square the user interacts with.
   - Coloring squares accordingly.
   - Managing and storing the state of each square—whether it’s empty, an obstacle, the start node, or the end node.
-  - And more.
+    
+  And more.
 
 - The `algorithmTools` object serves 2 purposes:
   
@@ -98,7 +99,7 @@ Each square has 1 of 4 possible states, encoded as a 2-bit integer:
 - `0b10 = end node` (red)
 - `0b11 = obstacle` (dark gray)
 
-These states are stored in `grid.squaresStates`, in a typed array with 8-bit integers as elements. Each 8-bit element contains the states of 4 consecutive squares. For example: the 1st byte stores states from indeces `0-3`, the 2nd byte stores states from indeces `4-7`, and so on.
+These states are stored in `grid.squaresStates`, in a `Uint8Array` where each byte packs four 2‑bit states. The 1st byte stores states from indeces `0-3`, the 2nd byte stores states from indeces `4-7`, and so on.
 
 - The `grid.getSquareState(squareIndex)` method returns the 2-bit value for the state of the square at the given index.
 - The `grid.setSquareState(squareIndex, newState)` method modifies `grid.squaresStates`, replacing the state of the square at the given index with the new state.
@@ -170,7 +171,7 @@ It follows this process:
 
 With the following condition, a square will be redrawn only if the square to redraw now is different from the square redrawn before, or if 600 ms have passed from the last time a square was redrawn:
 ```js
-if ((squareClickedX < 0 || squareClickedY < 0) || (squareClickedX > this.columns-3 || squareClickedY > this.rows-1)) {return};
+if (squareClicked !== this.previousSquareClicked || nowTime - this.lastDrawTime > 600)
 ```
 
 **Only redraws when clicking and dragging inside the grid:**
