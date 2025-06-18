@@ -109,10 +109,10 @@ When users click and drag on the grid, the squares are re-drawn with new colors 
 
 (HERE GOES LONG IMAGE OF CURSOR IN GRID WITH COLORED SQUARES AT LEFT WITH ARROW)
 
-**Placement order** when clicking and dragging over empty squares (state is `0b00`):
-1. If the start node hasn't been placed, the empty square becomes the start node (state is `0b01`).
-2. If the start node has been placed, but not the end node, the empty square becomes the end node (state is `0b10`).
-3. If start and end node have been placed, the empty square becomes an obstacle (state is `0b11`).
+**Placement order** when clicking and dragging over empty squares (`0b00`):
+1. If the start node hasn't been placed, the empty square becomes the start node (`0b01`).
+2. If the start node has been placed, but not the end node, the empty square becomes the end node (`0b10`).
+3. If start and end node have been placed, the empty square becomes an obstacle (`0b11`).
 
 The `grid.manageSquareState()` method takes a square index and updates its state and the color that's applied when being redrawn:
 - If the square with the given index is empty (`0b00`), it updates its state following the **placement order**, and sets the appropriate color to be used during the redraw.
