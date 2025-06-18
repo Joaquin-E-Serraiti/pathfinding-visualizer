@@ -218,3 +218,33 @@ If the grid is reset or resized, the square states are also reset to `0b00` (emp
 
 
 ## The `algorithmTools` object
+
+This object has 2 purposes:
+
+- Serve as a **communication bridge** between `gui.js` and the pathfinding algorithm, enabling the control of its execution (run/stop and speed) with the GUI.
+- Provide a **toolkit** of useful methods to make algorithm development more simple and enjoyable.
+
+### Communication Between GUI and Algorithm
+
+The GUI modifies 2 properties that the pathfinding algorithm reads:
+
+- `algorithmTools.canRun` : A boolean. If `true`, the algorithm can run; if `false`, the algorithm must stop.
+- `algorithmTools.speedControl` : Cycles through 3 values, allowing the algorithm to run at 3 different speeds.
+
+### Toolkit
+
+Currently, the only utility method is:
+
+- `algorithmTools.delay()` : Delays execution for a given number of milliseconds. Useful for step-by-step visualization and can be combined with `algorithmTools.speedControl`.
+
+However, here are some ideas for future additions:
+
+- A method that returns all traversable neighboring nodes (i.e., not obstacles) for a given node index.
+- Distance calculation methods (e.g., Manhattan, Euclidean, Octile, Chebyshev) to simplify heuristic implementations.
+
+
+>[!NOTE]
+>To learn how the properties and methods of this object should be used, visit [VISUALIZE_YOUR_ALGORITHM.md](./VISUALIZE_YOUR_ALGORITHM.md).
+
+
+
