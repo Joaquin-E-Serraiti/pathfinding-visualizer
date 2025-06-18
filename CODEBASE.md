@@ -88,16 +88,9 @@ Important notes about the measurements:
 
 ### The `grid.squaresStates` property
 
-Each square in the grid is indentified by a single index ranging from 0 to N-1, where N is the total number of squares (`columns * rows`). Instead of being identified by a `[column][row]` pair, the 2D position is flattened into a single index, calculated as `index = row * columns + column`. This indexing simplifies storage and traversal by treating the grid as a continuous block of memory.
+Each square in the grid is indentified by a single index ranging from 0 to N-1, where N is the total number of squares (`columns * rows`). Instead of being identified by a `[column][row]` pair, the 2D position is flattened into a single index, calculated as `index = row * columns + column`.
 
 ![Diseño sin título](https://github.com/user-attachments/assets/254562ff-edcf-4182-836c-d54248be6942)
-
-If needed, you can reverse the calculation to get the column and row from a given index:
-
-```js
-row = Math.floor(index / columns)
-column = index % columns
-```
 
 Each square has 1 of 4 possible states, encoded as a 2-bit integer: 
 - `0b00 = empty` (white)
