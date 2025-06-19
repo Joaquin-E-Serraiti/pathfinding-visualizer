@@ -1,11 +1,11 @@
 # Code Structure & How the Core Components Work
 
+
+
+
+![Diseño sin título (9)](https://github.com/user-attachments/assets/e704dd05-687d-4ab0-977b-f4541899f817)
+
 (THINGS TO ADD: grid object is found in grid.js and algorithmsTools object in algorithmsTools.js)
-
-
-![Diseño sin título (4)](https://github.com/user-attachments/assets/7788d72d-dcac-40e1-8504-d1179b9cd09a)
-
-
 
 > [!NOTE]
 > This diagram is a visual support to help understand how the core components of the code communicate with each other.
@@ -13,10 +13,10 @@
 
 ## Components Overview
 
-This project has 3 core components: the code in `gui.js`, the `grid` object and `algorithmTools` object. 
-Together, they connect the graphical user interface (GUI) with the pathfinding algorithm.
+This project has 4 core components: the code in `gui.js`, the pathfinding algorithm, the `grid` object and `algorithmTools` object. 
+Together, they make the graphical user interface (GUI) work.
 
-- `gui.js` acts as the central hub were everything is wired together. User inputs—such as mouse events, button clicks, and slider changes—are connected to the `grid` object, the `algorithmTools` object, and the pathfinding algorithm.
+- `gui.js` acts as the central hub were everything is wired together. User inputs—such as mouse events, button clicks, and slider changes—are connected to the `grid` object, the `algorithmTools` object, and the pathfinding algorithm. 
 
 - The `grid` object encapsulates everything related to the grid. It functions as a self-contained component of the GUI, with methods for:
   - Calculating square sizes and number of rows based on the current column count and canvas dimensions.
@@ -28,14 +28,18 @@ Together, they connect the graphical user interface (GUI) with the pathfinding a
 
 - The `algorithmTools` object serves 2 purposes:
   
-  **1.** It acts as a communication bridge between the GUI and the running algorithm. This includes passing control signals such as whether the algorithm can currently run and the speed control for visualization.
+  1. It acts as a communication bridge between the GUI and the running algorithm. This includes passing control signals such as whether the algorithm can currently run and the speed control for visualization.
   
-  **2.** It provides a toolkit to support algorithm development. Currently, this only includes a delay method used for animation pacing, but the plan is to expand it with utilities (like a method that returns neighboring nodes that aren’t obstacles), making algorithm creation simpler and more enjoyable.
+  2. It provides a toolkit to support algorithm development. Currently, this only includes a delay method used for animation pacing, but the plan is to expand it with utilities (like a method that returns neighboring nodes that aren’t obstacles), making algorithm creation simpler and more enjoyable.
 
-Both `grid` and `algorithmTools` are imported into the pathfinding algorithm files, giving the algorithms direct access to the methods and data they need to function and control their own execution and visualization. Both objects are also imported into `gui.js`, where they are connected to the GUI inputs.
+- The pathfinding algorithm uses the information from `grid` to find the shortest path from start node to end node, and it colors the grid squares to visualize the process. It controls its execution and speed of visualization by reading the control signals on `algorithmTools`.
 
 
 ## The `grid` Object
+![Diseño sin título (5)](https://github.com/user-attachments/assets/590a8f57-12fa-4539-906e-758195114178)
+
+
+
 
 ### Grid Initialization with `grid.initialize()` method
 
@@ -217,7 +221,10 @@ The `grid.generateGrid()` does this by looping through each square and:
 If the grid is reset or resized, the square states are also reset to `0b00` (empty → white). This method simply renders the grid as defined by its current configuration.
 
 
-## The `algorithmTools` object
+## The `algorithmTools` Object
+
+![Diseño sin título (6)](https://github.com/user-attachments/assets/b683b88b-8a01-4ad5-a4d9-c5f64025cbb3)
+
 
 This object has 2 purposes:
 
@@ -245,6 +252,19 @@ However, here are some ideas for future additions:
 
 >[!NOTE]
 >To learn how the properties and methods of this object should be used, visit [VISUALIZE_YOUR_ALGORITHM.md](./VISUALIZE_YOUR_ALGORITHM.md).
+
+
+## The Pathfinding Algorithm
+
+![Diseño sin título (10)](https://github.com/user-attachments/assets/56d136d5-c5d1-4aaf-a600-7ce7909d152e)
+
+
+
+
+## The Code in `gui.js`
+
+![Diseño sin título (7)](https://github.com/user-attachments/assets/c9223ba3-369e-4eb4-ba43-2f72d37ebfde)
+
 
 
 
