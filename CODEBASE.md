@@ -250,16 +250,23 @@ However, here are some ideas for future additions:
 - Distance calculation methods (e.g., Manhattan, Euclidean, Octile, Chebyshev) to simplify heuristic implementations.
 
 
->[!NOTE]
->To learn how the properties and methods of this object should be used, visit [VISUALIZE_YOUR_ALGORITHM.md](./VISUALIZE_YOUR_ALGORITHM.md).
-
 
 ## The Pathfinding Algorithm
 
 ![Diseño sin título (10)](https://github.com/user-attachments/assets/56d136d5-c5d1-4aaf-a600-7ce7909d152e)
 
+Every pathfinding algorithm has its own `.js` file, inside the `pathfinding algorithms` folder. To use an algorithm with the GUI, its file is imported in `gui.js` and connected to the Play Button so that it can be run.
 
+The algorithm should be inside a function that can be called, like `myAlgorithm()`. If you are using the `algorithmTools.delay()` method, that function also needs to be declared `async` for the delay to work.
 
+The `grid` and `algorithmTools` objects are imported in the algorithm file so that it can access their methods and properties.
+
+- Current available algorithms
+- How the visualization is handled: colorSquare as the main tool for visualization, along with delay.
+- You can choose the colors you want, and control the speed however you want.
+- The algorithm can be designed freely.
+- Positioning of checks for canRun flag.
+- Right now there is no option to easily swap algorithms through the GUI, but it is a feature planned to be included in the future. 
 
 ## The Code in `gui.js`
 
