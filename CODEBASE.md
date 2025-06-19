@@ -32,7 +32,7 @@ Together, they make the graphical user interface (GUI) work.
   
   2. It provides a toolkit to support algorithm development. Currently, this only includes a delay method used for animation pacing, but the plan is to expand it with utilities (like a method that returns neighboring nodes that aren’t obstacles), making algorithm creation simpler and more enjoyable.
 
-- The pathfinding algorithm uses the information from `grid` to find the shortest path from start node to end node, and it colors the grid squares to visualize the process. It controls its execution and speed of visualization by reading the control signals on `algorithmTools`.
+- The pathfinding algorithm uses the information from `grid` to find a path from start node to end node, and it colors the grid squares to visualize the process. It controls its execution and speed of visualization by reading the control signals on `algorithmTools`.
 
 
 ## The `grid` Object
@@ -255,18 +255,40 @@ However, here are some ideas for future additions:
 
 ![Diseño sin título (10)](https://github.com/user-attachments/assets/56d136d5-c5d1-4aaf-a600-7ce7909d152e)
 
-Every pathfinding algorithm has its own `.js` file, inside the `pathfinding algorithms` folder. To use an algorithm with the GUI, its file is imported in `gui.js` and connected to the Play Button so that it can be run.
+Every pathfinding algorithm has its own `.js` file inside the `pathfinding algorithms` folder. 
 
-The algorithm should be inside a function that can be called, like `myAlgorithm()`. If you are using the `algorithmTools.delay()` method, that function also needs to be declared `async` for the delay to work.
+To connect an algorithm to the GUI:
 
-The `grid` and `algorithmTools` objects are imported in the algorithm file so that it can access their methods and properties.
+- It must be wrapped in a function that can be called (e.g. `myAlgorithm()`).
+- If it uses the `algorithmTools.delay()` method, the function needs to be marked as `async` for the delay to work.
+- Its file needs to be imported in `gui.js`.
+- The function has to be wired to the **Play** button so it can be run.
 
-- Current available algorithms
-- How the visualization is handled: colorSquare as the main tool for visualization, along with delay.
-- You can choose the colors you want, and control the speed however you want.
-- The algorithm can be designed freely.
-- Positioning of checks for canRun flag.
-- Right now there is no option to easily swap algorithms through the GUI, but it is a feature planned to be included in the future. 
+The algorithm can access every method and property it needs through the imported `grid` and `algorithmTools` objects.
+
+### Visualization
+
+Visualization is entirely handled by `grid.colorSquare()`. This method colors specific squares in the grid as the algorithm goes through the process of exploring nodes and finding a path. Visualization requires only one line of code, calling this method and passing the index of the node being explored and a chosen color.
+ 
+### Execution Control
+
+To allow the GUI to stop the algorithm cleanly (when pressing **Stop**, resizing or clearing the grid), the algorithm must regularly check:
+
+```js
+if (!algorithmTools.canRun) {return}
+```
+
+### Algorithms can be freely designed
+
+They can follow any logic and use any heuristic. Any color can be chosen for visualization, and speed can be fully customized — you're not limited by the `algorithmTools.speedControl` values.
+
+### Available Algorithms
+
+- `demo.js` : A minimal example of a working algorithm using `grid` and `algorithmTools`.
+- `aStar.js` : A functional A* algorithm. It implements a visual gradient effect using `grid.colorSquare()`.
+- `myAlgorithm.js`: A blank template to help you create your own algorithm following the project conventions.
+
+Currently, algorithm selection is manual — `gui.js` must be modified to switch algorithms. A selector feature in the GUI is planned for a future update.
 
 ## The Code in `gui.js`
 
@@ -285,6 +307,6 @@ This documentation is intended to help understand how the project is structured 
 
 If you’re looking to create or test your own pathfinding algorithm and visualize it in this GUI, see the separate [VISUALIZE_YOUR_ALGORITHM.md](./VISUALIZE_YOUR_ALGORITHM.md) guide.
 
-If you have ideas for improving the code or any other aspect of the project and would like to contribute, check out [CONTRIBUTING.md](./CONTRIBUTING.md).
+If you have ideas for improving the code or any other aspect of the project and want to contribute, check out [CONTRIBUTING.md](./CONTRIBUTING.md).
 
-This is the first project I’ve published with the intention of being seen and used by others. I’m still learning about GitHub workflows and project maintenance. Any feedback, questions, suggestions or help is welcome as I continue developing and improving the project.
+This is the first project I’ve published with the intention of being seen and used by others. I’m still learning about GitHub workflows and project maintenance. Any feedback, questions, suggestions, or help is welcome as I continue developing and improving the project.
