@@ -279,5 +279,12 @@ The `grid` and `algorithmTools` objects are imported in the algorithm file so th
   - why e.preventdefault and passive: false
   - isDrawing with requestAnimationFrame
 
+## Final Notes
 
+This documentation is intended to help understand how the project is structured and how the main components work together.
 
+If you’re looking to create or test your own pathfinding algorithm and visualize it in this GUI, see the separate [VISUALIZE_YOUR_ALGORITHM.md](./VISUALIZE_YOUR_ALGORITHM.md) guide.
+
+If you have ideas for improving the code or any other aspect of the project and would like to contribute, check out [CONTRIBUTING.md](./CONTRIBUTING.md).
+
+This is the first project I’ve published with the intention of being seen and used by others. I’m still learning about GitHub workflows and project maintenance. Any feedback, questions, suggestions or help is welcome as I continue developing and improving the project.
