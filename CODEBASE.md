@@ -272,6 +272,12 @@ The `grid` and `algorithmTools` objects are imported in the algorithm file so th
 
 ![Diseño sin título (7)](https://github.com/user-attachments/assets/c9223ba3-369e-4eb4-ba43-2f72d37ebfde)
 
+- Grid initialization with input.value (num of columns)
+- Event listeners for buttons and slider
+- Event listeners for clicking and dragging on canvas
+  - pointer down, up and move behaviour, with isMouseDown
+  - why e.preventdefault and passive: false
+  - isDrawing with requestAnimationFrame
 
 
 
