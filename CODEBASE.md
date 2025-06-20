@@ -330,10 +330,10 @@ Pointer events are used instead of mouse events so that this interaction works a
 - **pointerup:** when the pointer stops being pressed, `isMouseDown` is set to `false`.
 - **pointermove:** when the pointer is moving within the canvas, it checks if the pointer is also being pressed (not just moving), and if it is, it calls `grid.drawOnGrid(event)`. `requestAnimationFrame()` is used to throttle drawing updates and align them with the browser’s refresh rate for better performance. The `isDrawing` flag ensures only one drawing operation runs at a time, preventing overlapping calls.
 
-**Notes:** 
 
-- Grid interaction only happens in the canvas, but the pointer might be released outside of it. To avoid bugs, `pointerdown` and `pointermove` are only listened on the canvas, while `pointerup` is listened in the entire window.
-- `event.preventDefault()` and `{ passive: false }` are used to prevent the default scroll behavior on touch devices when interacting with the grid. (This currently doesn’t work as intended. Along with some layout issues, it's something to fix to improve accessibility across devices)
+Grid interaction only happens in the canvas, but the pointer might be released outside of it. To avoid bugs, `pointerdown` and `pointermove` are only listened on the canvas, while `pointerup` is listened in the entire window.
+
+`event.preventDefault()` and `{ passive: false }` are used to prevent the default scroll behavior on touch devices when interacting with the grid. (This currently doesn’t work as intended. Along with some layout issues, it's something to fix to improve accessibility across devices)
 
 
 ## Final Notes
