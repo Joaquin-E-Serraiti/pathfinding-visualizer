@@ -77,4 +77,4 @@ A general explanation of the code structure and how the important features work 
 
 ## 5. Contributing
 
-If you are interested on contributing to this project, see how you can do it here: CONTRIBUTING.md.
+If you are interested on contributing to this project, see how you can do it here: [CONTRIBUTING.md](./CONTRIBUTING.md).
