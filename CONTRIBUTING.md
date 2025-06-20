@@ -2,7 +2,7 @@
 
 
 Hi! Thanks for your interest in contributing to this project 😊 It is my first project published with the intention of 
-being seen and used by others. This is a learning experience for me as I get to know GitHub and open-source workflows.
+being seen and used by others. This is a learning experience for me as I get to know about GitHub workflows and project maintenance.
 
 ## Ways to Contribute
 
