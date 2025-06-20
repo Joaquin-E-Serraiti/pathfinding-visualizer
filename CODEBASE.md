@@ -5,7 +5,6 @@
 
 ![Diseño sin título (9)](https://github.com/user-attachments/assets/e704dd05-687d-4ab0-977b-f4541899f817)
 
-(THINGS TO ADD: grid object is found in grid.js and algorithmsTools object in algorithmsTools.js)
 
 > [!NOTE]
 > This diagram is a visual support to help understand how the core components of the code communicate with each other.
@@ -16,7 +15,7 @@
 This project has 4 core components: the code in `gui.js`, the pathfinding algorithm, the `grid` object and `algorithmTools` object. 
 Together, they make the graphical user interface (GUI) work.
 
-- `gui.js` acts as the central hub were everything is wired together. User inputs—such as mouse events, button clicks, and slider changes—are connected to the `grid` object, the `algorithmTools` object, and the pathfinding algorithm. 
+- `gui.js` acts as the central hub where everything is wired together. User inputs—such as mouse events, button clicks, and slider changes—are connected to the `grid` object, the `algorithmTools` object, and the pathfinding algorithm. 
 
 - The `grid` object encapsulates everything related to the grid. It functions as a self-contained component of the GUI, with methods for:
   - Calculating square sizes and number of rows based on the current column count and canvas dimensions.
@@ -38,8 +37,8 @@ Together, they make the graphical user interface (GUI) work.
 ## The `grid` Object
 ![Diseño sin título (5)](https://github.com/user-attachments/assets/590a8f57-12fa-4539-906e-758195114178)
 
-
-
+> [!NOTE]
+> The code for the `grid` object can be found in [grid.js](./scripts/grid.js).
 
 ### Grid Initialization with `grid.initialize()` method
 
@@ -106,7 +105,7 @@ Each square has 1 of 4 possible states, encoded as a 2-bit integer:
 - `0b10 = end node` (red)
 - `0b11 = obstacle` (dark gray)
 
-These states are stored in `grid.squaresStates`, in a `Uint8Array` where each byte packs four 2‑bit states. The 1st byte stores states from indeces `0-3`, the 2nd byte stores states from indeces `4-7`, and so on.
+These states are stored in `grid.squaresStates`, in a `Uint8Array` where each byte packs four 2‑bit states. The 1st byte stores states from indices `0-3`, the 2nd byte stores states from indices `4-7`, and so on.
 
 - The `grid.getSquareState(squareIndex)` method returns the 2-bit value for the state of the square at the given index.
 - The `grid.setSquareState(squareIndex, newState)` method modifies `grid.squaresStates`, replacing the state of the square at the given index with the new state.
@@ -115,7 +114,11 @@ These states are stored in `grid.squaresStates`, in a `Uint8Array` where each by
 
 When users click and drag on the grid, the squares are re-drawn with new colors and their states are updated.
 
-(HERE GOES LONG IMAGE OF CURSOR IN GRID WITH COLORED SQUARES AT LEFT WITH ARROW)
+
+![Diseño sin título (12)](https://github.com/user-attachments/assets/2f6c8f32-7965-4f0c-b43e-6ee79c83b501)
+
+
+
 
 **Placement order** when clicking and dragging over empty squares (`0b00`):
 1. If the start node hasn't been placed, the empty square becomes the start node (`0b01`).
@@ -225,6 +228,8 @@ If the grid is reset or resized, the square states are also reset to `0b00` (emp
 
 ![Diseño sin título (6)](https://github.com/user-attachments/assets/b683b88b-8a01-4ad5-a4d9-c5f64025cbb3)
 
+> [!NOTE]
+> The code for the `algorithmTools` object can be found in [algorithmTools.js](./scripts/algorithmTools.js).
 
 This object has 2 purposes:
 
@@ -293,6 +298,9 @@ Currently, algorithm selection is manual — `gui.js` must be modified to switch
 ## The Code in `gui.js`
 
 ![Diseño sin título (7)](https://github.com/user-attachments/assets/c9223ba3-369e-4eb4-ba43-2f72d37ebfde)
+
+> [!NOTE]
+> See the code in [gui.js](./scripts/gui.js).
 
 This file handles user interaction and connects inputs to the app's functionality.
 
