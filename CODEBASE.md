@@ -294,12 +294,40 @@ Currently, algorithm selection is manual — `gui.js` must be modified to switch
 
 ![Diseño sin título (7)](https://github.com/user-attachments/assets/c9223ba3-369e-4eb4-ba43-2f72d37ebfde)
 
-- Grid initialization with input.value (num of columns)
-- Event listeners for buttons and slider
-- Event listeners for clicking and dragging on canvas
-  - pointer down, up and move behaviour, with isMouseDown
-  - why e.preventdefault and passive: false
-  - isDrawing with requestAnimationFrame
+This file handles user interaction and connects inputs to the app's functionality.
+
+The pathfinding algorithms, `grid` and `algorithmTools` are imported into `gui.js`.
+
+The grid is initialized and drawn onto the canvas with:
+
+```js
+grid.initialize(input.value, canvas)
+```
+Where `input.value` is the default number of columns selected with the slider, and `canvas` is the HTML `<canvas>` element.
+
+### Event Listeners for Buttons and Slider
+
+- **Clear Grid button:** Stops the algorithm and calls the `grid.clearGrid()` method.
+- **Play/Stop button:** If the algorithm isn't running and the start and end nodes are placed, it runs the algorithm. If the algorithm is running, it stops the algorithm and calls the `grid.generateGrid()` method to reset the grid to its state before running the algorithm.
+- **Speed button:** Cycles `algorithmTools.speedControl` through 3 different numeric values.
+- **Grid Size Slider:** When interacting with the slider, stops the algorithm, updates the number of columns and calls `grid.resizeGrid()`, passing the new number of columns.
+
+
+### Clicking and Dragging on canvas
+
+Pointer events are used instead of mouse events so that this interaction works across many devices. However, for simplicity I'll still refer to the interaction as "clicking and dragging".
+
+- `isMouseDown` is boolean used to track if the pointer is being pressed or not.
+
+- **pointerdown:** when the pointer is pressed, `isMouseDown` is set to `true`. If the algorithm isn't running, `grid.drawOnGrid(e)` is called.
+- **pointerup:** when the pointer stops being pressed, `isMouseDown` is set to `false`.
+- **pointermove:** when the pointer is moving within the canvas, it checks if the pointer is also being pressed (not just moving), and if it is, it calls `grid.drawOnGrid(event)`. `requestAnimationFrame()` is used to throttle drawing updates and align them with the browser’s refresh rate for better performance. The `isDrawing` flag ensures only one drawing operation runs at a time, preventing overlapping calls.
+
+**Notes:** 
+
+- Grid interaction only happens in the canvas, but the pointer might be released outside of it. To avoid bugs, `pointerdown` and `pointermove` are only listened on the canvas, while `pointerup` is listened in the entire window.
+- `event.preventDefault()` and `{ passive: false }` are used to prevent the default scroll behavior on touch devices when interacting with the grid. (This currently doesn’t work as intended. Along with some layout issues, it's something to fix to improve accessibility across devices)
+
 
 ## Final Notes
 
