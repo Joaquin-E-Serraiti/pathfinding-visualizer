@@ -115,7 +115,6 @@ These states are stored in `grid.squaresStates`, in a `Uint8Array` where each by
 When users click and drag on the grid, the squares are re-drawn with new colors and their states are updated.
 
 
-![Diseño sin título (12)](https://github.com/user-attachments/assets/2f6c8f32-7965-4f0c-b43e-6ee79c83b501)
 
 
 
