@@ -17,7 +17,23 @@ To download and run the GUI locally, see [DOWNLOAD_AND_RUN.md](./DOWNLOAD_AND_RU
 
 ## 2. Algorithm Integration
 
-Learn how to create and visualize your pathfinding algorithm in the GUI: [VISUALIZE_YOUR_ALGORITHM.md](./VISUALIZE_YOUR_ALGORITHM.md).
+You can integrate and visualize your own pathfinding algorithm in the GUI with minimal setup. After downloading the project:
+
+- Navigate to `Scripts/pathfinding algorithms/`.
+- Open `myAlgorithm.js` — a template is already set up for you.
+- Learn how to write your algorithm with [VISUALIZE_YOUR_ALGORITHM.md](./VISUALIZE_YOUR_ALGORITHM.md).
+- When finished, go to line 53 of the `gui.js` file and change:
+
+```js
+if (grid.startAndEndSet === 0b11) {aStar()}
+```
+
+to
+
+```js
+if (grid.startAndEndSet === 0b11) {myAlgorithm()}
+```
+
 
 ## 3. Features & GUI Usage
 
@@ -57,8 +73,8 @@ Learn how to create and visualize your pathfinding algorithm in the GUI: [VISUAL
 
 ## 4. Internal Structure
 
-The internal structure and logic of the code for this project explained: CODEBASE.md.
+A general explanation of the code structure and how the important features work can be found in [CODEBASE.md](./CODEBASE.md).
 
 ## 5. Contributing
 
-If you are interested on contributing to this project, see how you can do it here: CONTRIBUTING.md.
+If you are interested on contributing to this project, see how you can do it here: [CONTRIBUTING.md](./CONTRIBUTING.md).
