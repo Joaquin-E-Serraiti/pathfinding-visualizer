@@ -1,4 +1,4 @@
-# How to create and visualize your algorithm with this GUI
+# How to visualize your algorithm in this GUI
 
 Once you have navigated to `Scripts/pathfinding algorithms/` and opened `myAlgorithm.js`, you will see:
 - The `grid` and `algorithmTools` objects are imported into the file.
@@ -6,7 +6,7 @@ Once you have navigated to `Scripts/pathfinding algorithms/` and opened `myAlgor
 
 This documentation will explain everything you need to know when creating an algorithm or integrating one to be visualized in this GUI.
 
-## Squares Indexing
+## Square Indexing
 
 Each square in the grid is identified by a single index ranging from 0 to N-1, where N is the total number of squares (columns * rows). Instead of being identified by a [column][row] pair, the 2D position is flattened into a single index, calculated as index = row * columns + column.
 
