@@ -14,15 +14,12 @@ export async function demo() {
   const nodesToExplore = [{index:start,parent:null}];
 
   let currentNode = nodesToExplore[0];
-  let counter = 0;
 
   while (currentNode.index !== end) {
 
     if (!algorithmTools.canRun) {return}
     if (nodesToExplore.length === 0) {return}
 
-    counter++;
-    
     const neighborNodesIndeces = [currentNode.index+1,currentNode.index-1,currentNode.index+columns,currentNode.index-columns];
     exploredNodes.push(nodesToExplore.shift()); // Remove currentNode from nodesToExplore and push it to exploredNodes
     if (currentNode.index !== start && currentNode.index !== end) {
@@ -49,7 +46,7 @@ export async function demo() {
 
     currentNode = nodesToExplore[0];
     
-    if ((algorithmTools.speedControl !== 4 || Math.floor((counter%5)/4)) && (algorithmTools.speedControl !== 2 || Math.floor((counter%3)/2))) {await algorithmTools.delay(30-algorithmTools.speedControl*10)}
+    await algorithmTools.delay(40-algorithmTools.speedControl*10)
 
   }
   
@@ -60,6 +57,6 @@ export async function demo() {
 
     grid.colorSquare(currentNode.index,"rgb(246, 235, 118)");
     currentNode = currentNode.parent;
-    await algorithmTools.delay(30-algorithmTools.speedControl*10)
+    await algorithmTools.delay(40-algorithmTools.speedControl*10)
   }
 }
