@@ -21,7 +21,7 @@ You can integrate and visualize your own pathfinding algorithm in the GUI with m
 
 - Navigate to `Scripts/pathfinding algorithms/`.
 - Open `myAlgorithm.js` — a template is already set up for you.
-- Write your algorithm following the instructions provided in [VISUALIZE_YOUR_ALGORITHM.md](./VISUALIZE_YOUR_ALGORITHM.md).
+- Learn how to write your algorithm with [VISUALIZE_YOUR_ALGORITHM.md](./VISUALIZE_YOUR_ALGORITHM.md).
 - When finished, go to line 53 of the `gui.js` file and change:
 
 ```js
