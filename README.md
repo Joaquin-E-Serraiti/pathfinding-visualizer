@@ -1,6 +1,6 @@
 # Pathfinding Visualizer
 
-![Screenshot of GUI](https://github.com/user-attachments/assets/77c0bd74-8135-46a2-86b5-cf0826bdea4a)
+![Screenshot of GUI](./docs/images/GUI%20Screenshot)
 
 
 **Pathfinding Visualizer** is a user-friendly GUI to visualize and test pathfinding algorithms. It includes built-in tools that let programmers easily integrate their own custom algorithms with minimal setup—no need to build a visualization system from scratch—just focus on writing your algorithm, and everything else is handled.
@@ -13,7 +13,7 @@ Try it in your browser: [Pathfinding Visualizer](https://joaquin-e-serraiti.gith
 
 ## 1. Quick Start
 
-To download and run the GUI locally, see [DOWNLOAD_AND_RUN.md](./DOWNLOAD_AND_RUN.md).
+To download and run the GUI locally, see [DOWNLOAD_AND_RUN.md](./docs/DOWNLOAD_AND_RUN.md).
 
 ## 2. Algorithm Integration
 
@@ -21,7 +21,7 @@ You can integrate and visualize your own pathfinding algorithm in the GUI with m
 
 - Navigate to `Scripts/pathfinding algorithms/`.
 - Open `myAlgorithm.js` — a template is already set up for you.
-- Learn how to write your algorithm with [VISUALIZE_YOUR_ALGORITHM.md](./VISUALIZE_YOUR_ALGORITHM.md).
+- Learn how to write your algorithm with [VISUALIZE_YOUR_ALGORITHM.md](./docs/VISUALIZE_YOUR_ALGORITHM.md).
 - When finished, go to line 53 of the `gui.js` file and change:
 
 ```js
@@ -73,8 +73,8 @@ if (grid.startAndEndSet === 0b11) {myAlgorithm()}
 
 ## 4. Internal Structure
 
-A general explanation of the code structure and how the important features work can be found in [CODEBASE.md](./CODEBASE.md).
+A general explanation of the code structure and how the important features work can be found in [CODEBASE.md](./docs/CODEBASE.md).
 
 ## 5. Contributing
 
-If you are interested on contributing to this project, see how you can do it here: [CONTRIBUTING.md](./CONTRIBUTING.md).
+If you are interested on contributing to this project, see how you can do it here: [CONTRIBUTING.md](./docs/CONTRIBUTING.md).
