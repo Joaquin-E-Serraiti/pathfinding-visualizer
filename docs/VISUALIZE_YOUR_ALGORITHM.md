@@ -10,7 +10,7 @@ This documentation will explain everything you need to know when creating an alg
 
 Each square in the grid is identified by a single index ranging from 0 to N-1, where N is the total number of squares (columns * rows). Instead of being identified by a [column][row] pair, the 2D position is flattened into a single index, calculated as index = row * columns + column.
 
-![Diseño sin título](https://github.com/user-attachments/assets/5497cd4a-f3eb-41a4-903f-261416572a62)
+![Square Indexing](./images/Indexing.jpg)
 
 
 ## Squares States
@@ -45,7 +45,7 @@ The algorithm is connected to the GUI through the methods and properties of the 
 
 Inside the `pathfinding algorithms` folder you will also see the [demo.js](./scripts/pathfinding%20algorithms/demo.js) file. It contains a simple example of an algorithm built using the methods and properties provided. It is a Breadth-First Search (BFS) pathfinding algorithm:
 
-![Screenshot: BFS pathfinding in action](https://github.com/user-attachments/assets/c10448fa-633f-47c3-9e26-e4b474fdde26)
+![Screenshot: BFS pathfinding in action](./images/Demo%20pathfinding%20algorithm%20screenshot.png)
 
 
 

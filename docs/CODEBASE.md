@@ -3,7 +3,7 @@
 
 
 
-![Diseño sin título (9)](https://github.com/user-attachments/assets/e704dd05-687d-4ab0-977b-f4541899f817)
+![Components Diagram](./images/Components%20diagram%201.jpg)
 
 
 > [!NOTE]
@@ -35,10 +35,10 @@ Together, they make the graphical user interface (GUI) work.
 
 
 ## The `grid` Object
-![Diseño sin título (5)](https://github.com/user-attachments/assets/590a8f57-12fa-4539-906e-758195114178)
+![Grid component](./images/Components%20diagram%202.jpg)
 
 > [!NOTE]
-> The code for the `grid` object can be found in [grid.js](./scripts/grid.js).
+> The code for the `grid` object can be found in [grid.js](../scripts/grid.js).
 
 ### Grid Initialization with `grid.initialize()` method
 
@@ -97,7 +97,7 @@ Important notes about the measurements:
 
 Each square in the grid is identified by a single index ranging from 0 to N-1, where N is the total number of squares (`columns * rows`). Instead of being identified by a `[column][row]` pair, the 2D position is flattened into a single index, calculated as `index = row * columns + column`.
 
-![Diseño sin título](https://github.com/user-attachments/assets/254562ff-edcf-4182-836c-d54248be6942)
+![Square Indexing](./images/Indexing.jpg)
 
 Each square has 1 of 4 possible states, encoded as a 2-bit integer: 
 - `0b00 = empty` (white)
@@ -225,10 +225,10 @@ If the grid is reset or resized, the square states are also reset to `0b00` (emp
 
 ## The `algorithmTools` Object
 
-![Diseño sin título (6)](https://github.com/user-attachments/assets/b683b88b-8a01-4ad5-a4d9-c5f64025cbb3)
+![AlgorithmTools Component](./images/Components%20diagram%203.jpg)
 
 > [!NOTE]
-> The code for the `algorithmTools` object can be found in [algorithmTools.js](./scripts/algorithmTools.js).
+> The code for the `algorithmTools` object can be found in [algorithmTools.js](../scripts/algorithmTools.js).
 
 This object has 2 purposes:
 
@@ -257,7 +257,7 @@ However, here are some ideas for future additions:
 
 ## The Pathfinding Algorithm
 
-![Diseño sin título (10)](https://github.com/user-attachments/assets/56d136d5-c5d1-4aaf-a600-7ce7909d152e)
+![Pathfinding Algorithm Component](./images/Components%20diagram%204.jpg)
 
 Every pathfinding algorithm has its own `.js` file inside the `pathfinding algorithms` folder. 
 
@@ -296,10 +296,10 @@ Currently, algorithm selection is manual — `gui.js` must be modified to switch
 
 ## The Code in `gui.js`
 
-![Diseño sin título (7)](https://github.com/user-attachments/assets/c9223ba3-369e-4eb4-ba43-2f72d37ebfde)
+![GUI](./images/Components%20diagram%205.jpg)
 
 > [!NOTE]
-> See the code in [gui.js](./scripts/gui.js).
+> See the code in [gui.js](../scripts/gui.js).
 
 This file handles user interaction and connects inputs to the app's functionality.
 
