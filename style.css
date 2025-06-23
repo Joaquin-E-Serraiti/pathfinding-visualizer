@@ -95,14 +95,10 @@ body {
   height: 26%;
 }
 
-#clearButton:hover,
-#playButton:hover,
-#speedButton:hover {
+.button:hover {
   background-color: rgba(36, 43, 81, 0.519);
 }
-#clearButton:active,
-#playButton:active,
-#speedButton:active {
+.button:active {
   background-color: rgba(54, 63, 119, 0.519);
 }
 
