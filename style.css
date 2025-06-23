@@ -56,7 +56,7 @@ body {
   background: linear-gradient(to top, rgb(41, 41, 48) 10%, rgb(63, 63, 75));
 }
 
-#buttonsPanel button {
+.button {
   width: 200px;
   height: calc(610px / 3);
   margin: 0px;
@@ -73,7 +73,14 @@ body {
   align-items: center;
   position: relative;
 }
-#buttonsPanel button img {
+.button:hover {
+  background-color: rgba(36, 43, 81, 0.519);
+}
+.button:active {
+  background-color: rgba(54, 63, 119, 0.519);
+}
+
+.button img {
   object-fit: contain;
 
   display: block;
@@ -93,17 +100,6 @@ body {
 }
 #playButton img {
   height: 26%;
-}
-
-#clearButton:hover,
-#playButton:hover,
-#speedButton:hover {
-  background-color: rgba(36, 43, 81, 0.519);
-}
-#clearButton:active,
-#playButton:active,
-#speedButton:active {
-  background-color: rgba(54, 63, 119, 0.519);
 }
 
 #speedButton span {
