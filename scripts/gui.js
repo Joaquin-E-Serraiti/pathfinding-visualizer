@@ -54,11 +54,9 @@ playButton.addEventListener("click", async ()=>{
 })
 
 
-let speed = 1;
 document.getElementById("speedButton").addEventListener("click", async ()=>{
-  speed = {1:2,2:4,4:1}[speed];
-  document.getElementById("speedText").innerText = "X"+{1:"1",2:"2",4:"4"}[speed];
-  algorithmTools.switchSpeedControl();
+  algorithmTools.speedControl = {1:2,2:4,4:1}[algorithmTools.speedControl];
+  document.getElementById("speedText").innerText = "X"+{1:"1",2:"2",4:"4"}[algorithmTools.speedControl];
 })
 
 
